@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "npm run build && next export"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
+    "@sanity/client": "^6.1.7",
+    "@sanity/image-url": "^1.0.2",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
@@ -16,6 +20,7 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.6",
     "next": "13.4.6",
+    "next-sanity": "^5.1.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
