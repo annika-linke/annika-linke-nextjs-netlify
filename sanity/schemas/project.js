@@ -1,12 +1,39 @@
-export default {
+const post = {
+  title: 'Project',
   name: 'project',
   type: 'document',
-  title: 'Project',
   fields: [
     {
-      name: 'name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
-      title: 'Name',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+    },
+    {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+  },
 }
+
+export default post

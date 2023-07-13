@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const client = require("./sanity");
 
-module.exports = nextConfig
+const nextConfig = {
+  output: "export",
+};
+
+module.exports = nextConfig;
