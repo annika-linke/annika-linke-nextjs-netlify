@@ -1,8 +1,22 @@
+import Layout from "@/components/Layout";
+import Link from "next/link";
+
 const Index = () => {
   return (
-    <div className="bg-red-300">
-      <p>Hello world!</p>
-    </div>
+    <Layout>
+      <p className="bg-chestnut text-white font-headline">Hello world!</p>
+      <ul>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/work">Work</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact</Link>
+        </li>
+      </ul>
+    </Layout>
   );
 };
 

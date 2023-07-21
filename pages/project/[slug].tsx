@@ -1,5 +1,7 @@
+import Layout from "@/components/Layout";
 import { client } from "@/sanity";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 
 type Props = {
@@ -12,10 +14,13 @@ interface IParams extends ParsedUrlQuery {
 
 const Project = ({ project }: Props) => {
   return (
-    <article>
-      <p>{project?.slug?.current}</p>
-      <h1>{project?.title}</h1>
-    </article>
+    <Layout>
+      <article>
+        <p>{project?.slug?.current}</p>
+        <h1>{project?.title}</h1>
+        <Link href="/">Main</Link>
+      </article>
+    </Layout>
   );
 };
 
