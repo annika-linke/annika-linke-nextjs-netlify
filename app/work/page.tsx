@@ -4,7 +4,7 @@ import Link from "next/link";
 const Work = () => {
   return (
     <Layout>
-      <p className="bg-slate-300">Hello work from app!</p>
+      <p className="font-headline text-2xl">Hello work from app!</p>
       <ul>
         <li>
           <Link href="/">Menu</Link>
