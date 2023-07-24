@@ -1,3 +1,4 @@
 {
-  "eslint.workingDirectories": ["./app", "./sanity"]
+  "eslint.workingDirectories": ["./app", "./sanity"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
