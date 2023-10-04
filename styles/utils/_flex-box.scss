@@ -1,0 +1,97 @@
+$flexClasses: (
+  display: (
+    'flex',
+    'inline-flex',
+  ),
+  flex-direction: (
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+  ),
+  flex-wrap: (
+    'nowrap',
+    'wrap',
+    'wrap-reverse',
+  ),
+  justify-content: (
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around',
+    'space-evenly',
+  ),
+  align-items: (
+    'stretch',
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+  ),
+  align-content: (
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around',
+    'space-evenly',
+    'stretch',
+    'baseline',
+  ),
+);
+
+$flexItemClasses: (
+  align-self: (
+    'stretch',
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+  ),
+);
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-box__item--grow {
+  flex-grow: 1;
+}
+
+.flex-box__item--push-right {
+  margin-left: auto;
+}
+
+.flex-box__item--push-left {
+  margin-right: auto;
+}
+
+.flex-box__item--push-bottom {
+  margin-top: auto;
+}
+
+.flex-box__item--push-top {
+  margin-bottom: auto;
+}
+
+.flex-box--flex-direction-column {
+  height: 100%;
+}
+
+@each $property, $propertyList in $flexClasses {
+  @each $item in $propertyList {
+    .flex-box--#{$property}-#{$item} {
+      #{$property}: #{$item};
+    }
+  }
+}
+
+@each $property, $propertyList in $flexItemClasses {
+  @each $item in $propertyList {
+    .flex-box__item--#{$property}-#{$item} {
+      #{$property}: #{$item};
+    }
+  }
+}

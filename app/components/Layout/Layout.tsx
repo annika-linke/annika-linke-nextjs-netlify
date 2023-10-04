@@ -3,6 +3,7 @@
 import Color from "@/types/Color";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import "./layout.scss";
 
 const Layout = ({
   children,

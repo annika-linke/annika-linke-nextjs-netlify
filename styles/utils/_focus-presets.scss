@@ -1,0 +1,14 @@
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  @include focus-border();
+}
+
+:focus {
+  @include focus-border();
+}
+
+:focus:not(:focus-visible) {
+  outline: 0;
+}

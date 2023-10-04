@@ -1,0 +1,10 @@
+@each $name, $color, $textColor in $colors {
+  .c-#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+    color: $textColor;
+  }
+}

@@ -1,0 +1,54 @@
+@each $multiplicator in $spacerMultiplicators {
+  .spacer--top-#{$multiplicator} {
+    margin-top: calc($spacer * $multiplicator);
+  }
+  .spacer--right-#{$multiplicator} {
+    margin-right: calc($spacer * $multiplicator);
+  }
+  .spacer--bottom-#{$multiplicator} {
+    margin-bottom: calc($spacer * $multiplicator);
+  }
+  .spacer--left-#{$multiplicator} {
+    margin-left: calc($spacer * $multiplicator);
+  }
+  .spacer--padding-top-#{$multiplicator} {
+    padding-top: calc($spacer * $multiplicator);
+  }
+  .spacer--padding-right-#{$multiplicator} {
+    padding-right: calc($spacer * $multiplicator);
+  }
+  .spacer--padding-bottom-#{$multiplicator} {
+    padding-bottom: calc($spacer * $multiplicator);
+  }
+  .spacer--padding-left-#{$multiplicator} {
+    padding-left: calc($spacer * $multiplicator);
+  }
+
+  .spacer--top-minus-#{$multiplicator} {
+    margin-top: calc(-1 * calc($spacer * $multiplicator));
+  }
+  .spacer--right-minus-#{$multiplicator} {
+    margin-right: calc(-1 * calc($spacer * $multiplicator));
+  }
+  .spacer--bottom-minus-#{$multiplicator} {
+    margin-bottom: calc(-1 * calc($spacer * $multiplicator));
+  }
+  .spacer--left-minus-#{$multiplicator} {
+    margin-left: calc(-1 * calc($spacer * $multiplicator));
+  }
+}
+
+@each $width in $spacerBorderWidths {
+  .spacer--border-top-#{$width} {
+    border-top: #{$width}px solid var(--color-dark-20);
+  }
+  .spacer--border-right-#{$width} {
+    border-right: #{$width}px solid var(--color-dark-20);
+  }
+  .spacer--border-bottom-#{$width} {
+    border-bottom: #{$width}px solid var(--color-dark-20);
+  }
+  .spacer--border-left-#{$width} {
+    border-left: #{$width}px solid var(--color-dark-20);
+  }
+}

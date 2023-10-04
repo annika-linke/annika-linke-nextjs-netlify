@@ -1,0 +1,18 @@
+/**
+ * Z-Index helper
+ *
+ * @param $element Element name
+ * @param $list List with elements (defaults to $z-index-order)
+ * @param $base Integer to start z-index
+ * @return Z-index value for element
+ */
+@function z($element, $list: $z-index-order, $base: 100) {
+  $z-index: index($list, $element);
+
+  @if $z-index {
+    @return $base - $z-index;
+  }
+
+  @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+  @return null;
+}

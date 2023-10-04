@@ -1,0 +1,101 @@
+@import "../abstracts/variables-css";
+
+address,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+ol,
+ul,
+figure,
+hr,
+table,
+fieldset {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/**
+ * Default headline style
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-normal);
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/**
+ * Match type styles of form elements to parents
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+/**
+ * Default link style
+ * Style buttons as links
+ */
+a,
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  user-select: text;
+}
+
+/**
+ * Default transition time
+ */
+*,
+*::before,
+*::after {
+  transition-duration: var(--default-transition-duration);
+  transition-property: none;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0;
+  }
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+/**
+ * Reset citation element
+ */
+cite {
+  font-style: normal;
+}

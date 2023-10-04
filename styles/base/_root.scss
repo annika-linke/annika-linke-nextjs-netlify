@@ -1,0 +1,37 @@
+@import "../utils/mq";
+* {
+  box-sizing: border-box;
+}
+html {
+  color: var(--color-petrol);
+  font-family: var(--font-family-fallback);
+  font-size: var(--font-size-root);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: var(--font-weight-normal); // 1
+  line-height: var(--line-height-default); // 1
+  min-height: 100%; // 2
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+  max-width: 100vw;
+
+  @include mq($until: m) {
+    // needed for IOS to not scroll horizontally, but breaks body-scroll-lock...
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+body {
+  background-color: var(--body-background);
+  font-size: var(--font-size-default);
+  font-family: var(--font-family-sans);
+  min-width: 360px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: smooth;
+  margin: 0;
+  overscroll-behavior-y: none;
+  max-width: 100vw;
+}

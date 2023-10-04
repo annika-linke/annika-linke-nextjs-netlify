@@ -1,12 +1,11 @@
 import Layout from "@/app/components/Layout";
 import Link from "next/link";
+import "../styles/main.scss";
 
 const Index = () => {
   return (
     <Layout>
-      <p className="bg-chestnut text-white font-headline">
-        Hello world! from app
-      </p>
+      <p className="test">Hello world! from app</p>
       <ul>
         <li>
           <Link href="/about">About</Link>
