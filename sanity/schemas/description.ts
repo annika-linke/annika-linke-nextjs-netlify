@@ -1,0 +1,36 @@
+import {defineArrayMember, defineType} from 'sanity'
+
+export default defineType({
+  name: 'description',
+  title: 'Beschreibung',
+  type: 'array',
+  of: [
+    defineArrayMember({
+      title: 'Block',
+      type: 'block',
+      styles: [{title: 'Normal', value: 'normal'}],
+      marks: {
+        annotations: [
+          {
+            title: 'URL',
+            name: 'link',
+            type: 'object',
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: (Rule) =>
+                  Rule.uri({
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                  }),
+              },
+            ],
+          },
+        ],
+        decorators: [{title: 'Strong', value: 'strong'}],
+      },
+      lists: [],
+    }),
+  ],
+})

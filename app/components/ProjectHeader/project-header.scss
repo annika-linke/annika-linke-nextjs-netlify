@@ -1,0 +1,54 @@
+@import "../../../styles/utils/mq";
+@import "../../../styles/utils/list-reset";
+
+.project-header {
+  color: var(--color-chestnut);
+}
+
+.project-header__headline {
+  font-size: 4.3rem;
+  line-height: 1.1;
+
+  @include mq($from: m) {
+    font-size: 7.3rem;
+  }
+}
+
+.project-header__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+.project-header__info-item {
+  flex-grow: 1;
+
+  &:last-child {
+    margin-left: 1rem;
+  }
+}
+
+.project-header__info-title {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  margin-bottom: 0.8rem;
+  font-size: 2.1rem;
+}
+
+.project-header__list {
+  @include list-reset();
+}
+
+.project-header__list-item {
+  display: inline-block;
+  line-height: 1.25;
+
+  &::after {
+    content: ", ";
+    white-space: pre;
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+}

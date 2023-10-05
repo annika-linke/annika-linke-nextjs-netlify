@@ -1,0 +1,43 @@
+.logo-animate {
+  position: relative;
+  /* position: absolute;
+  top: calc(50% - 50px/2);
+  left: calc(50% - 50px/2); */
+  height: 100px;
+  width: 100px;
+}
+
+.logo-animate__bell {
+  top: 0;
+  left: calc(50% - 50px);
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  z-index: 99;
+}
+
+.logo-animate__eye {
+  position: absolute;
+  bottom: -4px;
+  left: calc(50% - 59px / 2);
+  width: 59px;
+  height: 59px;
+  border-radius: 100% 0;
+  overflow: hidden;
+  transform: translate(0, -3px) rotate(45deg);
+}
+
+.logo-animate__eyeball {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+}
+
+.logo-animate__iris {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: calc(50% - 40px / 2 - 2px);
+  top: calc(50% - 40px / 2 - 2px);
+  transition: all 0.1s;
+}

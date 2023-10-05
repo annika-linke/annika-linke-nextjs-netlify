@@ -1,4 +1,6 @@
 import { Pathway_Gothic_One, Source_Sans_3 } from "next/font/google";
+import "../styles/abstracts/_variables-css.scss";
+import "../styles/main.scss";
 
 const pathway = Pathway_Gothic_One({
   subsets: ["latin"],

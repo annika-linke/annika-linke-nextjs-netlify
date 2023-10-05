@@ -1,10 +1,9 @@
 import Layout from "@/app/components/Layout";
 import Link from "next/link";
-import "../styles/main.scss";
 
 const Index = () => {
   return (
-    <Layout>
+    <Layout siteTitle="start">
       <p className="test">Hello world! from app</p>
       <ul>
         <li>

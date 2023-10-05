@@ -1,45 +1,49 @@
-const post = {
+import {defineField, defineType} from 'sanity'
+
+const project = defineType({
   title: 'Project',
   name: 'project',
   type: 'document',
   fields: [
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-    },
-
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
-      name: 'slug',
+    defineField({title: 'Priority', name: 'priority', type: 'number'}),
+    defineField({title: 'Project Title', name: 'title', type: 'string'}),
+    defineField({
       title: 'Slug',
+      name: 'slug',
       type: 'slug',
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-    },
-    {
-      name: 'body',
-      title: 'Body',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({title: 'Year', name: 'year', type: 'string'}),
+    defineField({title: 'Technology', name: 'technology', type: 'description'}),
+    defineField({title: 'Role', name: 'role', type: 'description'}),
+    defineField({title: 'Details', name: 'details', type: 'blockContent'}),
+    defineField({
+      title: 'Images',
+      name: 'images',
       type: 'array',
       of: [
         {
-          type: 'block',
+          type: 'image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternativ Text',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+          ],
         },
       ],
-    },
+    }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-  },
-}
+})
 
-export default post
+export default project

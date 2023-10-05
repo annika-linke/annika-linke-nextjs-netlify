@@ -1,3 +1,5 @@
+import { TypedObject } from "sanity";
+
 export interface SanityBody {
   _createdAt: string;
   _updatedAt: string;
@@ -10,7 +12,16 @@ export interface SanityImage {
   asset: {
     _ref: string;
     _type: "reference";
+    metadata: any;
   };
+  alt?: "string";
+  hotspot?: {
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  caption?: string;
 }
 
 export interface Project extends SanityBody {
@@ -19,6 +30,11 @@ export interface Project extends SanityBody {
     _type: "slug";
     current: string;
   };
-  image: SanityImage;
-  title: string;
+  images?: SanityImage[];
+  title?: string;
+  priority?: number;
+  year?: string;
+  technology?: TypedObject | TypedObject[];
+  role?: TypedObject | TypedObject[];
+  details?: TypedObject | TypedObject[];
 }

@@ -1,28 +1,46 @@
 "use client";
 
-import Color from "@/types/Color";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { Theme } from "@/types/Theme";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import React, { FunctionComponent as FC, useEffect } from "react";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import "./layout.scss";
 
-const Layout = ({
+interface Props {
+  children: React.ReactNode;
+  theme?: Theme;
+  siteTitle: string;
+}
+
+const Layout: FC<Props> = ({
   children,
-  background = Color.beige,
-}: {
-  children: ReactNode;
-  background?: Color;
-}) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{
-      type: "spring",
-      stiffness: 260,
-      damping: 20,
-    }}
-  >
-    {children}
-  </motion.div>
-);
+  theme = Theme["Default"],
+  siteTitle,
+}: Props) => {
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  return (
+    <div
+      className={classNames(
+        "layout",
+        theme && `layout--${theme.toLocaleLowerCase()}`
+      )}
+    >
+      <Header className="layout__header" siteTitle={siteTitle} />
+      <main className="layout__content">{children}</main>
+      <Footer className="layout__footer" />
+    </div>
+  );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export default Layout;

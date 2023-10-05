@@ -1,36 +1,33 @@
 import Layout from "@/app/components/Layout";
-import { client, urlForImage } from "@/sanity";
-import { Project } from "@/types/Response";
-import { GetStaticProps } from "next";
-import Link from "next/link";
+import Project from "@/app/components/Project";
+import WorkNavigator from "@/app/components/WorkNavigator/WorkNavigator";
+import { client } from "@/sanity";
+import { Project as ProjectResponse } from "@/types/Response";
+import { Theme } from "@/types/Theme";
 import { ParsedUrlQuery } from "querystring";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 
-const Project = async ({ params }: { params: IParams }) => {
+const ProjectDetail = async ({ params }: { params: IParams }) => {
   const project = await getProject(params);
+
   return (
-    <Layout>
-      <article>
-        <p>{project?.slug?.current}</p>
-        <h1>{project?.title}</h1>
-        <Link href="/work">All Work</Link>
-        {project.image && (
-          <img
-            alt=""
-            src={urlForImage(project.image).url()}
-            width={100}
-            height={100}
-          />
-        )}
-      </article>
-    </Layout>
+    <>
+      <Layout siteTitle="Work" theme={Theme.Work}>
+        <Project {...project} />
+      </Layout>
+      <WorkNavigator
+        to={`/work/wewillsee`}
+        index={project?.priority || 1 + 1}
+        title={"next project"}
+      />
+    </>
   );
 };
 
-const getProject = async (params: IParams): Promise<Project> => {
+const getProject = async (params: IParams): Promise<ProjectResponse> => {
   const { slug = "" } = params;
   const project = await client.fetch(
     `
@@ -51,4 +48,4 @@ export async function generateStaticParams() {
   return paths.map((slug) => ({ slug }));
 }
 
-export default Project;
+export default ProjectDetail;

@@ -1,0 +1,55 @@
+@import "../../../styles/utils/mq";
+
+.work-navigator {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 0 3rem 12rem;
+
+  @include mq($from: m) {
+    margin-left: auto;
+    justify-content: flex-end;
+    margin: 3rem auto 0 22rem;
+    padding: 0;
+    max-width: 75rem;
+  }
+
+  @include mq($from: m) {
+    max-width: 54rem;
+    margin-right: 6rem;
+    margin-bottom: 2.8rem;
+    margin-left: auto;
+  }
+}
+
+.work-navigator__title {
+  font-size: 2.7rem;
+  text-transform: uppercase;
+  line-height: 1.15;
+  max-width: 50%;
+  margin-left: 1rem;
+
+  @include mq($from: m) {
+    font-size: 4rem;
+  }
+}
+
+.work-navigator__desc {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  line-height: 1.15;
+  margin-bottom: 0.2rem;
+
+  @include mq($from: m) {
+    align-items: flex-end;
+    flex-direction: column;
+    flex-grow: 0;
+    margin-bottom: 0.5rem;
+
+    span:first-child {
+      order: 2;
+    }
+  }
+}

@@ -1,0 +1,180 @@
+@import "../../../styles/utils/mq";
+
+.header {
+  position: relative;
+  height: 12.6rem;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.8rem 3rem;
+
+  @include mq($until: m) {
+    .header--sticky & {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 3rem;
+      z-index: 1;
+    }
+  }
+
+  @include mq($from: m) {
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding: 5.6rem 5.4rem 2.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.header__close {
+  margin-top: 0.4rem;
+  margin-right: 2.6rem;
+
+  @include mq($from: m) {
+    margin: 0;
+  }
+}
+
+.header__close a {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: block;
+  border: var(--border-default-width) solid var(--color-chestnut);
+  border-radius: 50%;
+  position: relative;
+  backdrop-filter: blur(4px);
+  background-color: rgba(var(--color-light-petrol-rgb), 0.5);
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: var(--border-default-width);
+    background-color: var(--color-chestnut);
+    top: 1.4rem;
+    left: 0.5rem;
+    transition-property: transform, top;
+    border-radius: 5px;
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &:hover,
+  &:focus {
+    &::after,
+    &::before {
+      top: 1rem;
+    }
+
+    &::after {
+      transform: rotate(35deg);
+    }
+    &::before {
+      transform: rotate(-35deg);
+    }
+  }
+
+  @include mq($from: l) {
+    height: 5.8rem;
+    width: 5.8rem;
+
+    &::after,
+    &::before {
+      width: 3rem;
+      top: 2.4rem;
+      left: 1.1rem;
+    }
+  }
+}
+
+.header__title {
+  border: var(--border-default-width) solid var(--color-chestnut);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  margin-top: 0.4rem;
+  backdrop-filter: blur(4px);
+  background-color: rgba(var(--color-light-petrol-rgb), 0.5);
+
+  @include mq($from: m) {
+    order: 3;
+    width: 6.4rem;
+    height: auto;
+  }
+}
+
+.header__title-headline {
+  font-size: 2.2rem;
+  font-family: var(--font-family-headline);
+  color: var(--color-chestnut);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 0 3.5rem;
+
+  @include mq($from: m) {
+    font-size: 3.5rem;
+    transform: rotate(-90deg);
+    padding: 6.1rem 7.5rem;
+  }
+}
+
+.header__brand {
+  transition-property: transform;
+  transition-delay: 0.2s;
+  transition-duration: 0.5s;
+
+  @include mq($until: m) {
+    text-align: center;
+    .header--sticky & {
+      transform: translate(0, -12.6rem);
+    }
+  }
+
+  @include mq($from: l) {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    width: 3.5rem;
+  }
+}
+
+.header__logo {
+  height: 3.7rem;
+}
+
+.header__brand-name-wrapper {
+  height: 10rem;
+}
+
+.header__brand-name {
+  font-family: var(--font-family-headline);
+  color: var(--color-chestnut);
+  text-decoration: none;
+  display: block;
+
+  @include mq($from: m) {
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
+    margin-top: 11rem;
+  }
+
+  @include mq($from: l) {
+    font-size: 2.2rem;
+    width: 8.7rem;
+  }
+}
