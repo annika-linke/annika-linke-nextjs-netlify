@@ -43,12 +43,10 @@ const Header: FC<Props> = ({ siteTitle, className }: Props) => {
         <div className="header__title">
           <h1 className="header__title-headline">{siteTitle}</h1>
         </div>
-        <a href="/">
-          <div className="header__brand">
-            <LogoLow className="icon header__logo" />
-            <div className="header__brand-name-wrapper">
-              <span className="header__brand-name">Annika Linke</span>
-            </div>
+        <a href="/" className="header__brand">
+          <LogoLow className="icon header__logo" />
+          <div className="header__brand-name-wrapper">
+            <span className="header__brand-name">Annika Linke</span>
           </div>
         </a>
       </div>

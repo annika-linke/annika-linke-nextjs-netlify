@@ -1,4 +1,5 @@
 import React, { FunctionComponent as FC } from "react";
+import "./footer.scss";
 
 interface Props {
   className?: string;
@@ -13,7 +14,7 @@ const Footer: FC<Props> = ({ className }: Props) => {
         </div>
         <div className="footer__link">
           {/* <Link to="/">Privacy Policy</Link> */}
-          Privacy Policy
+          <span>Privacy Policy</span>
         </div>
       </div>
     </footer>

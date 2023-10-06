@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-  padding: 0 3rem 12rem;
+  padding: 0 0 12rem;
 
   @include mq($from: m) {
     margin-left: auto;

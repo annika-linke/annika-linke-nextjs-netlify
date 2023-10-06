@@ -1,3 +1,5 @@
+@import "../../../styles/utils/mq";
+
 .footer {
   padding-bottom: 1rem;
 }
@@ -55,7 +57,7 @@
     height: 10rem;
     margin-top: 0;
 
-    a {
+    span {
       display: block;
       transform: rotate(-90deg) translate(-50%, 0);
       width: 10rem;

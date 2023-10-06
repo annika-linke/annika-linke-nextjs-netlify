@@ -140,25 +140,34 @@
 
   @include mq($until: m) {
     text-align: center;
+
     .header--sticky & {
       transform: translate(0, -12.6rem);
     }
   }
 
-  @include mq($from: l) {
+  @include mq($from: m) {
     order: 2;
     display: flex;
     flex-direction: column;
-    width: 3.5rem;
+    justify-content: center;
+    align-items: center;
   }
 }
 
+.header__brand-link {
+  display: block;
+}
+
 .header__logo {
-  height: 3.7rem;
+  // height: 3.7rem;
+  font-size: 3.7rem;
+  margin-bottom: 0.8rem;
 }
 
 .header__brand-name-wrapper {
-  height: 10rem;
+  // height: 10rem;
+  min-width: 0;
 }
 
 .header__brand-name {
@@ -166,15 +175,16 @@
   color: var(--color-chestnut);
   text-decoration: none;
   display: block;
+  white-space: nowrap;
 
-  @include mq($from: m) {
-    transform: rotate(-90deg);
-    transform-origin: 0% 0%;
-    margin-top: 11rem;
-  }
+  // @include mq($from: m) {
+  //   transform: rotate(-90deg);
+  //   transform-origin: 0% 0%;
+  //   margin-top: 11rem;
+  // }
 
   @include mq($from: l) {
     font-size: 2.2rem;
-    width: 8.7rem;
+    // width: 8.7rem;
   }
 }

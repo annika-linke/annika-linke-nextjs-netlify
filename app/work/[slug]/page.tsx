@@ -17,12 +17,12 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
     <>
       <Layout siteTitle="Work" theme={Theme.Work}>
         <Project {...project} />
+        <WorkNavigator
+          to={`/work/wewillsee`}
+          index={project?.priority || 1 + 1}
+          title={"next project"}
+        />
       </Layout>
-      <WorkNavigator
-        to={`/work/wewillsee`}
-        index={project?.priority || 1 + 1}
-        title={"next project"}
-      />
     </>
   );
 };
