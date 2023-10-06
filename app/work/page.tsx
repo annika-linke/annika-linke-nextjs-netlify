@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Work = () => {
   return (
-    <Layout>
+    <Layout siteTitle="work">
       <p className="font-headline text-2xl">Hello work from app!</p>
       <ul>
         <li>

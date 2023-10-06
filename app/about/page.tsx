@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <Layout>
+    <Layout siteTitle="about">
       <p className="bg-slate-300">Hello About! from app</p>
       <ul>
         <li>

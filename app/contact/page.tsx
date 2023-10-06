@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <Layout>
+    <Layout siteTitle="contact">
       <p className="bg-slate-300">Hello Contact from app!</p>
       <ul>
         <li>
