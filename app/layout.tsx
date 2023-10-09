@@ -1,6 +1,7 @@
 import { Pathway_Gothic_One, Source_Sans_3 } from "next/font/google";
 import "../styles/abstracts/_variables-css.scss";
 import "../styles/main.scss";
+import { mediaStyles } from "@/styles/media";
 
 const pathway = Pathway_Gothic_One({
   subsets: ["latin"],
@@ -22,6 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${pathway.variable} ${sourcesans.variable}`}>
+      <head>
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{ __html: mediaStyles }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -3,11 +3,14 @@ import { client } from "@/sanity";
 import { ProjectSlug } from "@/types/Response";
 import { groq } from "next-sanity";
 import WorkSlider from "../components/WorkSlider/WorkSlider";
+import { Theme } from "@/types/Theme";
 
 const Work = async () => {
   const props = await getProjectSlugs();
   return (
-    <Layout siteTitle="work">{props && <WorkSlider items={props} />}</Layout>
+    <Layout siteTitle="work" theme={Theme.WorkDetail}>
+      {props && <WorkSlider items={props} />}
+    </Layout>
   );
 };
 

@@ -1,7 +1,21 @@
 @import "../../../styles/utils/list-reset";
+@import "../../../styles/utils/mq";
 
 .work-slider {
   color: var(--color-chestnut);
+
+  @include mq($from: s) {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+}
+
+.work-slider__content {
+  @include mq($from: s) {
+    flex-grow: 1;
+    max-width: 60%;
+  }
 }
 
 .work-slider__headline {
@@ -20,6 +34,7 @@
 
 .work-slider__title {
   display: flex;
+  position: relative;
 }
 
 .work-slider__index {
@@ -27,20 +42,37 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 4.6rem;
+
+  @include mq($from: s) {
+    position: absolute;
+    left: 0;
+  }
 }
 .work-slider__title-wrap {
   margin-left: 0.6rem;
   min-width: 0;
+  position: relative;
 }
 
 .work-slider__title-text {
   font-size: 4.3rem;
   font-family: var(--font-family-headline);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 100%;
   display: block;
+  transition: all 0.2s;
+  white-space: nowrap;
+
+  @include mq($until: s) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  @include mq($from: s) {
+    .work-slider__item:hover &,
+    .work-slider__item--active & {
+      letter-spacing: 1rem;
+      font-weight: var(--font-weight-bold);
+    }
+  }
 }
 
 .work-slider__technology p {
@@ -58,4 +90,21 @@
   br::after {
     content: " ";
   }
+}
+
+.work-slider__media {
+  @include mq($from: s) {
+    width: 40%;
+    flex-shrink: 0;
+    margin-top: auto !important;
+  }
+}
+
+.work-slider__indicator {
+  background-color: var(--color-chestnut);
+  height: 0.3rem;
+  position: absolute;
+  left: calc(100% + 1.2rem);
+  top: 50%;
+  transform: translateY(-50%);
 }

@@ -13,6 +13,11 @@
 .layout__content {
   padding: 0 3rem 3.8rem;
   flex-grow: 1;
+
+  .layout--work-detail & {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .layout__footer {
