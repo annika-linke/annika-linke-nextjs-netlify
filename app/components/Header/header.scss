@@ -160,13 +160,11 @@
 }
 
 .header__logo {
-  // height: 3.7rem;
   font-size: 3.7rem;
   margin-bottom: 0.8rem;
 }
 
 .header__brand-name-wrapper {
-  // height: 10rem;
   min-width: 0;
 }
 
@@ -177,14 +175,7 @@
   display: block;
   white-space: nowrap;
 
-  // @include mq($from: m) {
-  //   transform: rotate(-90deg);
-  //   transform-origin: 0% 0%;
-  //   margin-top: 11rem;
-  // }
-
   @include mq($from: l) {
     font-size: 2.2rem;
-    // width: 8.7rem;
   }
 }

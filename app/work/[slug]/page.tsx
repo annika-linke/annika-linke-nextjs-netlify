@@ -4,6 +4,7 @@ import WorkNavigator from "@/app/components/WorkNavigator/WorkNavigator";
 import { client } from "@/sanity";
 import { Project as ProjectResponse } from "@/types/Response";
 import { Theme } from "@/types/Theme";
+import { groq } from "next-sanity";
 import { ParsedUrlQuery } from "querystring";
 
 interface IParams extends ParsedUrlQuery {
@@ -17,11 +18,13 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
     <>
       <Layout siteTitle="Work" theme={Theme.Work}>
         <Project {...project} />
-        <WorkNavigator
-          to={`/work/wewillsee`}
-          index={project?.priority || 1 + 1}
-          title={"next project"}
-        />
+        {project.next && (
+          <WorkNavigator
+            to={project.next.slug?.current}
+            index={project?.next?.priority}
+            title={project?.next?.title || "Next Project"}
+          />
+        )}
       </Layout>
     </>
   );
@@ -30,8 +33,13 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
 const getProject = async (params: IParams): Promise<ProjectResponse> => {
   const { slug = "" } = params;
   const project = await client.fetch(
-    `
-    *[_type == "project" && slug.current == $slug][0]
+    groq`*[_type == "project" && slug.current == $slug]{
+      ...,
+      "next": *[_type == "project" && priority == select(
+      ^.priority + 1 > count(*[_type == "project"]) => 1,
+      ^.priority + 1
+    )][0]{title, slug, priority}
+  }[0]
   `,
     { slug }
   );

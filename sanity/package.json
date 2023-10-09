@@ -36,6 +36,9 @@
     "semi": false,
     "printWidth": 100,
     "bracketSpacing": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "plugins": [
+      "prettier-plugin-groq"
+    ]
   }
 }

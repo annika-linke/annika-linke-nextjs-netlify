@@ -12,12 +12,9 @@
     justify-content: flex-end;
     margin: 3rem auto 0 22rem;
     padding: 0;
-    max-width: 75rem;
   }
 
   @include mq($from: m) {
-    max-width: 54rem;
-    margin-right: 6rem;
     margin-bottom: 2.8rem;
     margin-left: auto;
   }
@@ -27,11 +24,12 @@
   font-size: 2.7rem;
   text-transform: uppercase;
   line-height: 1.15;
-  max-width: 50%;
+
   margin-left: 1rem;
 
   @include mq($from: m) {
     font-size: 4rem;
+    max-width: 27.5rem;
   }
 }
 

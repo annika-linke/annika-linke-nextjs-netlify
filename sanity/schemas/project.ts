@@ -5,7 +5,12 @@ const project = defineType({
   name: 'project',
   type: 'document',
   fields: [
-    defineField({title: 'Priority', name: 'priority', type: 'number'}),
+    defineField({
+      title: 'Priority', 
+      name: 'priority', 
+      type: 'number', 
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({title: 'Project Title', name: 'title', type: 'string'}),
     defineField({
       title: 'Slug',
@@ -43,6 +48,20 @@ const project = defineType({
         },
       ],
     }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'priority',
+      media: 'images.0.asset',
+    },
+  },
+  orderings: [
+    {
+      title: 'Priority',
+      name: 'priority',
+      by: [{field: 'priority', direction: 'asc'}],
+    },
   ],
 })
 

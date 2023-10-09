@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import { LogoLow } from "../Icon";
 import "./header.scss";
+import Link from "next/link";
 
 interface Props {
   siteTitle: string;
@@ -36,19 +37,19 @@ const Header: FC<Props> = ({ siteTitle, className }: Props) => {
     >
       <div className="header__inner">
         <div className="header__close">
-          <a href="/work/">
+          <Link href="/work/">
             <span className="hidden-visually">Back to Overview</span>
-          </a>
+          </Link>
         </div>
         <div className="header__title">
           <h1 className="header__title-headline">{siteTitle}</h1>
         </div>
-        <a href="/" className="header__brand">
+        <Link href="/" className="header__brand">
           <LogoLow className="icon header__logo" />
           <div className="header__brand-name-wrapper">
             <span className="header__brand-name">Annika Linke</span>
           </div>
-        </a>
+        </Link>
       </div>
     </header>
   );

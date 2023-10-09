@@ -32,9 +32,17 @@ export interface Project extends SanityBody {
   };
   images?: SanityImage[];
   title?: string;
-  priority?: number;
+  priority: number;
   year?: string;
   technology?: TypedObject | TypedObject[];
   role?: TypedObject | TypedObject[];
   details?: TypedObject | TypedObject[];
+  next?: {
+    title?: string;
+    priority: number;
+    slug: {
+      _type: "slug";
+      current: string;
+    };
+  };
 }

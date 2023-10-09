@@ -1,5 +1,6 @@
 import React, { FunctionComponent as FC } from "react";
 import "./work-navigator.scss";
+import Link from "next/link";
 
 interface Props {
   to: string;
@@ -14,8 +15,7 @@ const WorkNavigator: FC<Props> = ({ to, index, title }: Props) => {
   });
 
   return (
-    // <Link className="work-navigator" to={to}>
-    <div className="work-navigator">
+    <Link className="work-navigator" href={to}>
       <div className="work-navigator__desc">
         <span>next</span>
         <span>{formattedNumber}</span>
@@ -23,8 +23,7 @@ const WorkNavigator: FC<Props> = ({ to, index, title }: Props) => {
       <div className="work-navigator__title f-headline">
         <span>{title}</span>
       </div>
-    </div>
-    // </Link>
+    </Link>
   );
 };
 

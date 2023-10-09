@@ -1,11 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import useScrollPosition from "@react-hook/window-scroll";
-import classNames from "classnames";
-import ProjectHeader from "../ProjectHeader/ProjectHeader";
 import { Project as ProjectType } from "@/types/Response";
+import classNames from "classnames";
 import BlockContent from "../BlockContent";
 import Image from "../Image/Image";
+import ProjectHeader from "../ProjectHeader/ProjectHeader";
 import "./project.scss";
 
 const Project = ({
