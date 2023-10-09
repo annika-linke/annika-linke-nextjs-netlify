@@ -12,6 +12,7 @@ const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({title: 'Project Title', name: 'title', type: 'string'}),
+    defineField({title: 'Project Short', name: 'short', type: 'string'}),
     defineField({
       title: 'Slug',
       name: 'slug',

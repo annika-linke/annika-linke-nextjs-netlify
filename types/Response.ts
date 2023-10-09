@@ -24,6 +24,18 @@ export interface SanityImage {
   caption?: string;
 }
 
+export interface ProjectSlug {
+  title?: string;
+  priority: number;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+  images?: SanityImage[];
+  short?: string;
+  technology?: TypedObject | TypedObject[];
+}
+
 export interface Project extends SanityBody {
   _type: "project";
   slug: {
@@ -37,12 +49,6 @@ export interface Project extends SanityBody {
   technology?: TypedObject | TypedObject[];
   role?: TypedObject | TypedObject[];
   details?: TypedObject | TypedObject[];
-  next?: {
-    title?: string;
-    priority: number;
-    slug: {
-      _type: "slug";
-      current: string;
-    };
-  };
+  next?: ProjectSlug;
+  short?: string;
 }

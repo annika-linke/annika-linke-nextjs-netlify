@@ -1,0 +1,61 @@
+@import "../../../styles/utils/list-reset";
+
+.work-slider {
+  color: var(--color-chestnut);
+}
+
+.work-slider__headline {
+  font-size: var(--font-size-default);
+  margin-bottom: 2.6rem;
+  margin-top: 8rem;
+}
+
+.work-slider__list {
+  @include list-reset();
+}
+
+.work-slider__item {
+  margin-bottom: 1.6rem;
+}
+
+.work-slider__title {
+  display: flex;
+}
+
+.work-slider__index {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 4.6rem;
+}
+.work-slider__title-wrap {
+  margin-left: 0.6rem;
+  min-width: 0;
+}
+
+.work-slider__title-text {
+  font-size: 4.3rem;
+  font-family: var(--font-family-headline);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+.work-slider__technology p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 1.2rem;
+
+  br {
+    content: "";
+  }
+
+  br::after {
+    content: " ";
+  }
+}
