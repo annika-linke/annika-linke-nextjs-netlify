@@ -34,9 +34,9 @@ const ProjectHeader: FC<Props> = ({
               <h2 className="f-headline project-header__info-title">
                 {item.title}
               </h2>
-              <ul className="project-header__list">
+              <div className="project-header__list">
                 {item.content && <BlockContent value={item.content} />}
-              </ul>
+              </div>
             </div>
           ))}
         </section>

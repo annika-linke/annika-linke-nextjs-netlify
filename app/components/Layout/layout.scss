@@ -36,7 +36,14 @@
 
   .layout__content {
     padding: 0;
-    max-width: 75rem;
+
+    .layout--work & {
+      max-width: 75rem;
+    }
+
+    .layout--work-detail & {
+      padding-bottom: 2.6rem;
+    }
   }
 
   .layout__footer {
@@ -52,5 +59,9 @@
   .layout__content {
     max-width: none;
     padding-right: 6rem;
+
+    .layout--work & {
+      max-width: none;
+    }
   }
 }

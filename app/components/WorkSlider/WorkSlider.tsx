@@ -1,7 +1,7 @@
 "use client";
 import { blocksToText } from "@/sanity";
 import { Breakpoints, Media } from "@/styles/media";
-import { ProjectSlug } from "@/types/Response";
+import { Project, ProjectSlug } from "@/types/Response";
 import Link from "next/link";
 import React from "react";
 import { TypedObject } from "sanity";
@@ -12,13 +12,13 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 
 interface Props {
-  items: ProjectSlug[];
+  items: Project[];
 }
 
 const WorkSlider = ({ items }: Props) => {
   const [active, setActive] = React.useState(items[0]);
 
-  const handleMouseIn = (item: ProjectSlug) => {
+  const handleMouseIn = (item: Project) => {
     setActive(item);
   };
 
@@ -86,6 +86,33 @@ const WorkSlider = ({ items }: Props) => {
             ))}
           </ul>
         )}
+        <Media
+          greaterThanOrEqual={Breakpoints.s}
+          className="work-slider__details"
+        >
+          {active.technology && (
+            <div className="work-slider__detail-item">
+              <h3 className="f-headline work-slider__subtitle">Technology</h3>
+              <div
+                className="work-slider__detail-content"
+                title={blocksToText(active.technology as TypedObject[])}
+              >
+                <BlockContent value={active.technology} />
+              </div>
+            </div>
+          )}
+          {active.role && (
+            <div className="work-slider__detail-item">
+              <h3 className="f-headline work-slider__subtitle">role</h3>
+              <div
+                className="work-slider__detail-content"
+                title={blocksToText(active.role as TypedObject[])}
+              >
+                <BlockContent value={active.role} />
+              </div>
+            </div>
+          )}
+        </Media>
       </div>
 
       <Media greaterThanOrEqual={Breakpoints.s} className="work-slider__media">

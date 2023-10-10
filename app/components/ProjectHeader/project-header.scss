@@ -34,21 +34,3 @@
   margin-bottom: 0.8rem;
   font-size: 2.1rem;
 }
-
-.project-header__list {
-  @include list-reset();
-}
-
-.project-header__list-item {
-  display: inline-block;
-  line-height: 1.25;
-
-  &::after {
-    content: ", ";
-    white-space: pre;
-  }
-
-  &:last-child::after {
-    content: "";
-  }
-}

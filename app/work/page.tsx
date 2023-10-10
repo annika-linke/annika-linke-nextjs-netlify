@@ -1,9 +1,9 @@
 import Layout from "@/app/components/Layout";
 import { client } from "@/sanity";
-import { ProjectSlug } from "@/types/Response";
+import { Project } from "@/types/Response";
+import { Theme } from "@/types/Theme";
 import { groq } from "next-sanity";
 import WorkSlider from "../components/WorkSlider/WorkSlider";
-import { Theme } from "@/types/Theme";
 
 const Work = async () => {
   const props = await getProjectSlugs();
@@ -14,7 +14,7 @@ const Work = async () => {
   );
 };
 
-const getProjectSlugs = async (): Promise<ProjectSlug[]> => {
+const getProjectSlugs = async (): Promise<Project[]> => {
   const project = await client.fetch(
     groq`*[_type == "project"]{
       ...,

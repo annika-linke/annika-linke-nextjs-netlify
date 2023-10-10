@@ -33,7 +33,6 @@ export interface ProjectSlug {
   };
   images?: SanityImage[];
   short?: string;
-  technology?: TypedObject | TypedObject[];
 }
 
 export interface Project extends SanityBody {

@@ -25,11 +25,15 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    padding: 5.6rem 5.4rem 2.8rem;
+    padding: 5.4rem 2rem 2.8rem;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
+  }
+
+  @include mq($from: l) {
+    padding: 5.4rem 1.6rem 2.8rem;
   }
 }
 
@@ -162,6 +166,15 @@
 .header__logo {
   font-size: 3.7rem;
   margin-bottom: 0.8rem;
+
+  @include mq($from: m) {
+    font-size: 4.7rem;
+    margin-bottom: 1.6rem;
+  }
+
+  @include mq($from: l) {
+    font-size: 5rem;
+  }
 }
 
 .header__brand-name-wrapper {
@@ -175,7 +188,15 @@
   display: block;
   white-space: nowrap;
 
-  @include mq($from: l) {
+  @include mq($from: m) {
+  }
+
+  @include mq($from: m) {
     font-size: 2.2rem;
+    transform: rotate(-90deg) translateX(-50%);
+  }
+
+  @include mq($from: l) {
+    font-size: 2.5rem;
   }
 }

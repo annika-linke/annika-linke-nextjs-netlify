@@ -9,6 +9,7 @@ export enum Breakpoints {
   m = "m",
   l = "l",
   xl = "xl",
+  xxl = "xxl",
 }
 
 export const breakpoints: Record<Breakpoints, number> = {
@@ -17,6 +18,7 @@ export const breakpoints: Record<Breakpoints, number> = {
   m: 1024,
   l: 1280,
   xl: 1440,
+  xxl: 1860,
 };
 
 const AppMedia = createMedia({
