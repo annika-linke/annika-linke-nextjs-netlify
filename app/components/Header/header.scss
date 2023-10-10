@@ -54,8 +54,15 @@
   border-radius: 50%;
   position: relative;
   backdrop-filter: blur(4px);
-  background-color: rgba(var(--color-light-petrol-rgb), 0.5);
+  background-color: rgba(var(--color-petrol-light-rgb), 0.5);
 
+  @include mq($from: l) {
+    height: 5.8rem;
+    width: 5.8rem;
+  }
+}
+
+.header__close:not(.header__close--dots) a {
   &::after,
   &::before {
     content: "";
@@ -65,7 +72,7 @@
     background-color: var(--color-chestnut);
     top: 1.4rem;
     left: 0.5rem;
-    transition-property: transform, top;
+    transition: all 0.3s;
     border-radius: 5px;
   }
 
@@ -93,15 +100,32 @@
   }
 
   @include mq($from: l) {
-    height: 5.8rem;
-    width: 5.8rem;
-
     &::after,
     &::before {
       width: 3rem;
       top: 2.4rem;
       left: 1.1rem;
     }
+  }
+}
+
+.header__close--dots a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__dots {
+  color: var(--color-chestnut);
+  font-size: 2.5rem;
+  transition: all 0.3s;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .header__close--dots a:hover & {
+    transform: rotate(-90deg);
   }
 }
 
@@ -113,7 +137,7 @@
   height: 3.5rem;
   margin-top: 0.4rem;
   backdrop-filter: blur(4px);
-  background-color: rgba(var(--color-light-petrol-rgb), 0.5);
+  background-color: rgba(var(--color-petrol-light-rgb), 0.5);
 
   @include mq($from: m) {
     order: 3;

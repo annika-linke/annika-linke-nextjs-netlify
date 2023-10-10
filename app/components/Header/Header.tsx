@@ -4,9 +4,11 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { LogoLow } from "../Icon";
+import { Dots, LogoLow } from "../Icon";
 import "./header.scss";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import classNames from "classnames";
 
 interface Props {
   siteTitle: string;
@@ -16,6 +18,10 @@ interface Props {
 const Header: FC<Props> = ({ siteTitle, className }: Props) => {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const path = usePathname();
+  const [parentPath, setParentPath] = useState<string | undefined | null>(path);
+  const [renderDots, setRenderDots] = useState(false);
+
   const handleScroll = () => {
     if (ref.current) {
       setSticky(ref.current.getBoundingClientRect().top <= -5);
@@ -30,15 +36,34 @@ const Header: FC<Props> = ({ siteTitle, className }: Props) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (path) {
+      const slashes = path.match(/\//g)?.length || 0;
+      setParentPath(path.substring(0, path.lastIndexOf("/")));
+      setRenderDots(slashes === 1);
+    }
+  }, [path]);
+
   return (
     <header
       className={`header${isSticky ? " header--sticky" : ""} ${className}`}
       ref={ref}
     >
       <div className="header__inner">
-        <div className="header__close">
-          <Link href="/work/">
+        <div
+          className={classNames(
+            "header__close",
+            renderDots && "header__close--dots"
+          )}
+        >
+          <Link href={parentPath || "/"}>
             <span className="hidden-visually">Back to Overview</span>
+
+            {renderDots && (
+              <span className="header__dots">
+                <Dots className="icon" />
+              </span>
+            )}
           </Link>
         </div>
         <div className="header__title">

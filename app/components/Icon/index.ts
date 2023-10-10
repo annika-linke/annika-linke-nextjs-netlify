@@ -4,3 +4,4 @@ export { default as Bell } from "./bell.svg";
 export { default as Eye } from "./eye-shape.svg";
 export { default as Pupil } from "./pupil.svg";
 export { default as PupilShape } from "./pupil-shape.svg";
+export { default as Dots } from "./dots.svg";

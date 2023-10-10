@@ -2,6 +2,7 @@
   --color-beige: #ebe7e4;
   --color-petrol: #285963;
   --color-petrol-light: #dfe6e8;
+  --color-petrol-light-rgb: 223, 230, 232;
   --color-chestnut: #994e36;
   --color-white: #fff;
 
@@ -16,4 +17,5 @@
 
   --body-background: var(--color-beige);
   --border-default-width: 3px;
+  --default-transition-duration: 0.3s;
 }

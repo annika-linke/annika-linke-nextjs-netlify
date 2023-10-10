@@ -1,0 +1,8 @@
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(1 77)">
+    <ellipse cx="23.9" cy="23" rx="23.9" ry="23"/>
+    <ellipse cx="99" cy="23" rx="23.9" ry="23"/>
+    <ellipse cx="174.1" cy="23" rx="23.9" ry="23"/>
+  </g>
+</svg>
