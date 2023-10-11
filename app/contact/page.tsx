@@ -1,17 +1,23 @@
 import Layout from "@/app/components/Layout";
-import Link from "next/link";
+import { client } from "@/sanity";
+import { Contact as ContactType } from "@/types/Response";
+import { Theme } from "@/types/Theme";
+import { groq } from "next-sanity";
+import Contact from "../components/Contact/Contact";
 
-const Contact = () => {
+const ContactPage = async () => {
+  const contact = await getContact();
   return (
-    <Layout siteTitle="contact">
-      <p className="bg-slate-300">Hello Contact from app!</p>
-      <ul>
-        <li>
-          <Link href="/">Menu</Link>
-        </li>
-      </ul>
+    <Layout siteTitle="contact" theme={Theme.Contact} hideLogo>
+      <Contact {...contact} />
     </Layout>
   );
 };
 
-export default Contact;
+const getContact = async (): Promise<ContactType> => {
+  const contact = await client.fetch(groq`*[_type == "contact"][0]`);
+
+  return contact;
+};
+
+export default ContactPage;

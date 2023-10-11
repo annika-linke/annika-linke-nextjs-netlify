@@ -51,3 +51,13 @@ export interface Project extends SanityBody {
   next?: ProjectSlug;
   short?: string;
 }
+
+export interface Contact extends SanityBody {
+  _type: "contact";
+  email: string;
+  socialLinks?: {
+    platform?: "linkedIn" | "xing";
+    url?: string;
+  }[];
+  text?: TypedObject | TypedObject[];
+}

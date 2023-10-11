@@ -1,0 +1,66 @@
+@import "../../../styles/utils/list-reset";
+
+.contact {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact__header {
+  text-align: center;
+  color: var(--color-beige);
+  margin-top: 4rem;
+  flex-grow: 1;
+}
+.contact__header-line {
+  font-size: 5.6rem;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+}
+
+.contact__header-kicker {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+.contact__bell {
+  font-size: 9rem;
+  display: inline-block;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(90deg);
+}
+
+.contact__mail {
+  margin: 2.4rem 0;
+}
+
+.contact__content {
+  margin-bottom: 2.4rem;
+}
+
+.contact__social-list {
+  @include list-reset;
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.2rem;
+
+  li + li {
+    margin-left: 1.6rem;
+  }
+}
+
+.button.contact__social-link {
+  padding: 0;
+  height: 4.5rem;
+  width: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

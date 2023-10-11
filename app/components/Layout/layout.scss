@@ -10,11 +10,26 @@
   background-color: var(--color-petrol-light);
 }
 
+.layout--contact,
+.layout--about {
+  --header-color: var(--color-beige);
+  color: var(--color-beige);
+}
+
+.layout--contact {
+  background-color: var(--color-petrol);
+}
+
+.layout--about {
+  background-color: var(--color-chestnut);
+}
+
 .layout__content {
   padding: 0 3rem 3.8rem;
   flex-grow: 1;
 
-  .layout--work-detail & {
+  .layout--work-detail &,
+  .layout--contact & {
     display: flex;
     flex-direction: column;
   }

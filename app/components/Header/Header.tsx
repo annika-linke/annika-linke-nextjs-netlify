@@ -1,21 +1,17 @@
-import React, {
-  FunctionComponent as FC,
-  useState,
-  useRef,
-  useEffect,
-} from "react";
-import { Dots, LogoLow } from "../Icon";
-import "./header.scss";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import classNames from "classnames";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FunctionComponent as FC, useEffect, useRef, useState } from "react";
+import { Brand, Dots } from "../Icon";
+import "./header.scss";
 
 interface Props {
   siteTitle: string;
   className?: string;
+  hideLogo?: boolean;
 }
 
-const Header: FC<Props> = ({ siteTitle, className }: Props) => {
+const Header: FC<Props> = ({ siteTitle, className, hideLogo }: Props) => {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const path = usePathname();
@@ -69,12 +65,14 @@ const Header: FC<Props> = ({ siteTitle, className }: Props) => {
         <div className="header__title">
           <h1 className="header__title-headline">{siteTitle}</h1>
         </div>
-        <Link href="/" className="header__brand">
-          <LogoLow className="icon header__logo" />
-          <div className="header__brand-name-wrapper">
-            <span className="header__brand-name">Annika Linke</span>
-          </div>
-        </Link>
+        {!hideLogo && (
+          <Link href="/" className="header__brand">
+            <Brand className="icon header__logo" />
+            <div className="header__brand-name-wrapper">
+              <span className="header__brand-name">Annika Linke</span>
+            </div>
+          </Link>
+        )}
       </div>
     </header>
   );

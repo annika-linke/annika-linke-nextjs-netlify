@@ -5,3 +5,6 @@ export { default as Eye } from "./eye-shape.svg";
 export { default as Pupil } from "./pupil.svg";
 export { default as PupilShape } from "./pupil-shape.svg";
 export { default as Dots } from "./dots.svg";
+export { default as Brand } from "./brand.svg";
+export { default as Xing } from "./xing.svg";
+export { default as LinkedIn } from "./linkedIn.svg";

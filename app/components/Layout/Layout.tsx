@@ -13,12 +13,14 @@ interface Props {
   children: React.ReactNode;
   theme?: Theme;
   siteTitle: string;
+  hideLogo?: boolean;
 }
 
 const Layout: FC<Props> = ({
   children,
   theme = Theme["Default"],
   siteTitle,
+  hideLogo,
 }: Props) => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -34,7 +36,11 @@ const Layout: FC<Props> = ({
           theme && `layout--${theme.toLocaleLowerCase()}`
         )}
       >
-        <Header className="layout__header" siteTitle={siteTitle} />
+        <Header
+          className="layout__header"
+          siteTitle={siteTitle}
+          hideLogo={hideLogo}
+        />
         <main className="layout__content">{children}</main>
         <Footer className="layout__footer" />
       </div>

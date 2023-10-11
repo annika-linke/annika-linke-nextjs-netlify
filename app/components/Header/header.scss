@@ -50,11 +50,17 @@
   width: 3.6rem;
   height: 3.6rem;
   display: block;
-  border: var(--border-default-width) solid var(--color-chestnut);
+  border: var(--border-default-width) solid var(--header-color);
   border-radius: 50%;
   position: relative;
   backdrop-filter: blur(4px);
   background-color: rgba(var(--color-petrol-light-rgb), 0.5);
+
+  .layout--contact &,
+  .layout--about & {
+    backdrop-filter: none;
+    background-color: transparent;
+  }
 
   @include mq($from: m) {
     height: 5.8rem;
@@ -69,7 +75,7 @@
     position: absolute;
     width: 2rem;
     height: var(--border-default-width);
-    background-color: var(--color-chestnut);
+    background-color: var(--header-color);
     top: 1.4rem;
     left: 0.5rem;
     transition: all 0.3s;
@@ -116,7 +122,7 @@
 }
 
 .header__dots {
-  color: var(--color-chestnut);
+  color: var(--header-color);
   font-size: 1.6rem;
   height: 1.6rem;
   transition: all 0.3s;
@@ -135,7 +141,7 @@
 }
 
 .header__title {
-  border: var(--border-default-width) solid var(--color-chestnut);
+  border: var(--border-default-width) solid var(--header-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,6 +149,12 @@
   margin-top: 0.4rem;
   backdrop-filter: blur(4px);
   background-color: rgba(var(--color-petrol-light-rgb), 0.5);
+
+  .layout--contact &,
+  .layout--about & {
+    backdrop-filter: none;
+    background-color: transparent;
+  }
 
   @include mq($from: m) {
     order: 3;
@@ -154,7 +166,7 @@
 .header__title-headline {
   font-size: 2.2rem;
   font-family: var(--font-family-headline);
-  color: var(--color-chestnut);
+  color: var(--header-color);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   padding: 0 3.5rem;
@@ -212,7 +224,7 @@
 
 .header__brand-name {
   font-family: var(--font-family-headline);
-  color: var(--color-chestnut);
+  color: var(--header-color);
   text-decoration: none;
   display: block;
   white-space: nowrap;
