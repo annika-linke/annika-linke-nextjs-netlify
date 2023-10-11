@@ -1,38 +1,6 @@
 @import "../../../styles/utils/mq";
 
-.footer {
-  padding-bottom: 1rem;
-}
-
-.footer__inner {
-  text-align: center;
-  font-size: 1.2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer__credits {
-  align-self: center;
-}
-
-.footer__link {
-  align-self: flex-end;
-  text-decoration: underline;
-  text-transform: uppercase;
-  padding-right: 3rem;
-  margin-top: -1.9rem;
-
-  a:hover {
-    text-decoration: none;
-  }
-}
-
-@include mq($from: m) {
-  .footer {
-    text-align: left;
-    justify-content: center;
-  }
-
+@mixin rotatedFooter {
   .footer__inner {
     position: fixed;
     top: calc(100vh - 3.6rem);
@@ -63,4 +31,43 @@
       width: 10rem;
     }
   }
+}
+
+.footer {
+  padding-bottom: 1rem;
+}
+
+.footer__inner {
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__credits {
+  align-self: center;
+}
+
+.footer__link {
+  align-self: flex-end;
+  text-decoration: underline;
+  text-transform: uppercase;
+  padding-right: 3rem;
+  margin-top: -1.9rem;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.index__footer {
+  @include rotatedFooter;
+}
+
+@include mq($from: m) {
+  .footer {
+    text-align: left;
+    justify-content: center;
+  }
+  @include rotatedFooter;
 }

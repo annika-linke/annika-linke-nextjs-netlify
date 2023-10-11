@@ -1,0 +1,137 @@
+@import "../../../styles/utils/mq";
+
+.index {
+  padding: 1.2rem;
+  height: 100vh;
+  color: var(--color-chestnut);
+  position: relative;
+}
+
+.index__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  border: 3px solid var(--color-chestnut);
+  overflow: hidden;
+  padding: 1.6rem;
+
+  @include mq($from: m) {
+    padding: 1.6rem 0;
+  }
+}
+
+.index__brand {
+  font-size: 2.6rem;
+}
+
+.index__logo {
+  font-size: 7.5rem;
+  margin-top: 2rem;
+
+  @include mq($from: m) {
+    font-size: 12rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.index__menu {
+  flex-grow: 1;
+  padding: 2rem 0;
+
+  @include mq($from: m) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.index__menu-item {
+  display: block;
+  text-align: center;
+  font-size: 12rem;
+  text-transform: uppercase;
+  letter-spacing: -0.3rem;
+  line-height: 1;
+  position: relative;
+  margin-top: 2rem;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 3px;
+    background-color: var(--color-chestnut);
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 2rem;
+  }
+
+  @include mq($from: m) {
+    padding: 0;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33.33333%;
+    user-select: none;
+
+    &:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    &:not(:last-child)::after {
+      content: none;
+    }
+
+    &:nth-child(2) {
+      text-align: center;
+    }
+
+    &:first-child {
+      text-align: right;
+    }
+  }
+
+  @include mq($from: l) {
+    font-size: 16rem;
+  }
+
+  @include mq($from: xxl) {
+    font-size: 25rem;
+  }
+}
+
+.index__kicker {
+  letter-spacing: 0.12rem;
+  font-size: 1.6rem;
+}
+
+.index__footer.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .footer__inner {
+    right: 0.6rem;
+  }
+
+  @include mq($from: m) {
+    .footer__inner {
+      bottom: auto;
+      top: 1.5rem;
+      transform: translate(0);
+    }
+  }
+}

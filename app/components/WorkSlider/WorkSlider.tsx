@@ -40,20 +40,37 @@ const WorkSlider = ({ items }: Props) => {
                 onMouseEnter={() => handleMouseIn(item)}
               >
                 <Link className="work-slider__title" href={item.slug.current}>
-                  {active.slug.current === item.slug.current && (
-                    <motion.span
-                      className="work-slider__index"
-                      initial={{ opacity: 0, transform: "translateX(-150%)" }}
-                      animate={{ opacity: 1, transform: "translateX(-100%)" }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      key={active.slug.current}
-                    >
+                  <Media lessThan={Breakpoints.s}>
+                    <div className="work-slider__index">
                       {item.priority.toLocaleString("en-US", {
                         minimumIntegerDigits: 2,
                         useGrouping: false,
                       })}
-                    </motion.span>
-                  )}
+                    </div>
+                  </Media>
+                  <Media greaterThanOrEqual={Breakpoints.s}>
+                    {active.slug.current === item.slug.current && (
+                      <motion.span
+                        className="work-slider__index"
+                        initial={{
+                          opacity: 0,
+                          transform: "translateX(-150%)",
+                        }}
+                        animate={{
+                          opacity: 1,
+                          transform: "translateX(-100%)",
+                        }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        key={active.slug.current}
+                      >
+                        {item.priority.toLocaleString("en-US", {
+                          minimumIntegerDigits: 2,
+                          useGrouping: false,
+                        })}
+                      </motion.span>
+                    )}
+                  </Media>
+
                   <div className="work-slider__title-wrap">
                     <span
                       className="work-slider__title-text"
@@ -71,15 +88,18 @@ const WorkSlider = ({ items }: Props) => {
                         )}
                       </div>
                     </Media>
-                    {active.slug.current === item.slug.current && (
-                      <motion.div
-                        key={active.slug.current}
-                        className="work-slider__indicator"
-                        initial={{ width: 0 }}
-                        animate={{ width: 45 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                      />
-                    )}
+
+                    <Media greaterThanOrEqual={Breakpoints.s}>
+                      {active.slug.current === item.slug.current && (
+                        <motion.div
+                          key={active.slug.current}
+                          className="work-slider__indicator"
+                          initial={{ width: 0 }}
+                          animate={{ width: 45 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        />
+                      )}
+                    </Media>
                   </div>
                 </Link>
               </li>

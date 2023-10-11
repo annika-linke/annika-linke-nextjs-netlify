@@ -56,7 +56,7 @@
   backdrop-filter: blur(4px);
   background-color: rgba(var(--color-petrol-light-rgb), 0.5);
 
-  @include mq($from: l) {
+  @include mq($from: m) {
     height: 5.8rem;
     width: 5.8rem;
   }
@@ -117,15 +117,20 @@
 
 .header__dots {
   color: var(--color-chestnut);
-  font-size: 2.5rem;
+  font-size: 1.6rem;
+  height: 1.6rem;
   transition: all 0.3s;
-  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .header__close--dots a:hover & {
     transform: rotate(-90deg);
+  }
+
+  @include mq($from: m) {
+    font-size: 2.5rem;
+    height: 2.5rem;
   }
 }
 
