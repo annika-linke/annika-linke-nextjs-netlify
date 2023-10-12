@@ -1,4 +1,5 @@
 @import "../../../styles/utils/list-reset";
+@import "../../../styles/utils/mq";
 
 .contact {
   flex-grow: 1;
@@ -13,6 +14,14 @@
   color: var(--color-beige);
   margin-top: 4rem;
   flex-grow: 1;
+
+  @include mq($from: m) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
 }
 .contact__header-line {
   font-size: 5.6rem;
@@ -42,6 +51,11 @@
 
 .contact__content {
   margin-bottom: 2.4rem;
+
+  @include mq($from: s) {
+    max-width: 39rem;
+    margin-bottom: 5.6rem;
+  }
 }
 
 .contact__social-list {
@@ -56,11 +70,6 @@
   }
 }
 
-.button.contact__social-link {
-  padding: 0;
-  height: 4.5rem;
-  width: 4.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contact__social-link {
+  font-size: 2.4rem;
 }

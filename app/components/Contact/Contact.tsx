@@ -57,14 +57,14 @@ const Contact = ({ email, text, socialLinks }: Contact) => {
             {socialLinks.map((socialLink, index) => {
               return (
                 <li key={index}>
-                  <ButtonLink
+                  <a
                     href={socialLink.url}
                     target="_blank"
                     rel="noreferrer"
                     className="contact__social-link"
                   >
                     <Icon name={socialLink.platform} />
-                  </ButtonLink>
+                  </a>
                 </li>
               );
             })}

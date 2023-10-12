@@ -30,10 +30,22 @@
     top: 0;
     left: 0;
     z-index: 1;
+
+    .layout--contact & {
+      right: 0;
+      height: 9rem;
+      padding: 0 1.6rem;
+      flex-direction: row;
+    }
   }
 
   @include mq($from: l) {
     padding: 5.4rem 1.6rem 2.8rem;
+
+    .layout--contact & {
+      padding: 0 5rem;
+      align-items: flex-end;
+    }
   }
 }
 
@@ -159,7 +171,13 @@
   @include mq($from: m) {
     order: 3;
     width: 6.4rem;
-    height: auto;
+    height: 19.6rem;
+
+    .layout--contact & {
+      height: 6.4rem;
+      width: 19.6rem;
+      margin: 0;
+    }
   }
 }
 
@@ -175,6 +193,11 @@
     font-size: 3.5rem;
     transform: rotate(-90deg);
     padding: 6.1rem 7.5rem;
+
+    .layout--contact & {
+      transform: rotate(0);
+      padding: 0;
+    }
   }
 }
 

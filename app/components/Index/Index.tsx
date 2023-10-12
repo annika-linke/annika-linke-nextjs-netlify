@@ -1,12 +1,12 @@
 "use client";
-import Link from "next/link";
-import { LogoLow } from "../Icon";
-import classNames from "classnames";
-import { useRef, useState } from "react";
-import "./index.scss";
-import Footer from "../Footer/Footer";
 import { Breakpoints, Media } from "@/styles/media";
+import classNames from "classnames";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import Footer from "../Footer/Footer";
+import { Brand } from "../Icon";
+import "./index.scss";
 
 type Menu = "work" | "contact" | "about";
 
@@ -66,7 +66,7 @@ const Index = () => {
       <div className="index__inner">
         <h1 className="f-headline index__brand">Annika Linke</h1>
         <div className="index__logo">
-          <LogoLow className="icon header__logo" />
+          <Brand className="icon" />
         </div>
         <nav
           className="index__menu"

@@ -49,6 +49,11 @@
     grid-template-columns: 22rem 1fr 5rem;
   }
 
+  .layout--contact {
+    display: flex;
+    flex-direction: column;
+  }
+
   .layout__content {
     padding: 0;
 
@@ -58,6 +63,10 @@
 
     .layout--work-detail & {
       padding-bottom: 2.6rem;
+    }
+
+    .layout--contact & {
+      padding: 0;
     }
   }
 
