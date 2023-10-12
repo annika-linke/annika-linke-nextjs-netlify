@@ -54,6 +54,10 @@
     flex-direction: column;
   }
 
+  .layout--about {
+    grid-template-columns: 13rem 1fr 5rem;
+  }
+
   .layout__content {
     padding: 0;
 
@@ -72,6 +76,19 @@
 
   .layout__footer {
     margin-top: 14.2rem;
+  }
+
+  .layout--about .layout__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .footer__inner {
+      right: 0;
+      bottom: auto;
+      top: 1.5rem;
+      transform: translate(0);
+    }
   }
 }
 

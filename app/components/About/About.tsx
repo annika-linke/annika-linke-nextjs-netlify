@@ -15,7 +15,7 @@ const About = ({ title, text, image, contact }: About) => {
           </h1>
         )}
         {text && (
-          <div>
+          <div className="about__text">
             <BlockContent value={text} />
           </div>
         )}
