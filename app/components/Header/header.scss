@@ -68,10 +68,13 @@
   backdrop-filter: blur(4px);
   background-color: rgba(var(--color-petrol-light-rgb), 0.5);
 
-  .layout--contact &,
-  .layout--about & {
+  .layout--contact & {
     backdrop-filter: none;
     background-color: transparent;
+  }
+
+  .layout--about & {
+    background-color: rgba(var(--color-chestnut-rgb), 0.5);
   }
 
   @include mq($from: m) {
@@ -162,10 +165,13 @@
   backdrop-filter: blur(4px);
   background-color: rgba(var(--color-petrol-light-rgb), 0.5);
 
-  .layout--contact &,
-  .layout--about & {
+  .layout--contact & {
     backdrop-filter: none;
     background-color: transparent;
+  }
+
+  .layout--about & {
+    background-color: rgba(var(--color-chestnut-rgb), 0.5);
   }
 
   @include mq($from: m) {

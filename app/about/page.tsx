@@ -1,17 +1,26 @@
 import Layout from "@/app/components/Layout";
-import Link from "next/link";
+import { client } from "@/sanity";
+import { About as AboutType } from "@/types/Response";
+import { Theme } from "@/types/Theme";
+import { groq } from "next-sanity";
+import About from "../components/About/About";
 
-const About = () => {
+const AboutPage = async () => {
+  const about = await getAbout();
   return (
-    <Layout siteTitle="about">
-      <p className="bg-slate-300">Hello About! from app</p>
-      <ul>
-        <li>
-          <Link href="/">Menu</Link>
-        </li>
-      </ul>
+    <Layout siteTitle="about" theme={Theme.About} hideLogo>
+      <About {...about} />
     </Layout>
   );
 };
 
-export default About;
+const getAbout = async (): Promise<AboutType> => {
+  const about = await client.fetch(groq`*[_type == "about"]{
+    ...,
+    "contact": *[_type == "contact"][0],
+  }[0]`);
+
+  return about;
+};
+
+export default AboutPage;

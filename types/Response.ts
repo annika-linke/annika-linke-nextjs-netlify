@@ -61,3 +61,11 @@ export interface Contact extends SanityBody {
   }[];
   text?: TypedObject | TypedObject[];
 }
+
+export interface About extends SanityBody {
+  _type: "about";
+  title?: string;
+  image?: SanityImage;
+  text?: TypedObject | TypedObject[];
+  contact?: Contact;
+}
