@@ -28,9 +28,26 @@
   height: 35rem;
   margin: 0 auto;
   background-color: var(--color-chestnut);
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: -25rem;
+    height: 25rem;
+    background-color: var(--color-beige);
+    width: 3px;
+    left: 3rem;
+  }
+
+  &::before {
+    left: auto;
+    right: 3rem;
+  }
 
   @include mq($from: m) {
-    transform: translateY(-100%);
+    margin-top: 25rem;
   }
 }
 
@@ -76,19 +93,6 @@
   font-size: 1.6rem;
   line-height: 1;
   letter-spacing: 0.1rem;
-}
-
-.about__holder {
-  position: absolute;
-  width: 18rem;
-  border: 3px solid var(--color-beige);
-  border-width: 0 var(--border-default-width) 0 var(--border-default-width);
-  height: 35rem;
-  left: 50%;
-  transform: translateX(-50%);
-
-  @include mq($from: m) {
-  }
 }
 
 .about__contact {
