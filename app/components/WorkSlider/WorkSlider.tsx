@@ -1,7 +1,7 @@
 "use client";
 import { blocksToText } from "@/sanity";
 import { Breakpoints, Media } from "@/styles/media";
-import { Project, ProjectSlug } from "@/types/Response";
+import { Project, ProjectSlug, SanityImage } from "@/types/Response";
 import Link from "next/link";
 import React from "react";
 import { TypedObject } from "sanity";
@@ -136,17 +136,29 @@ const WorkSlider = ({ items }: Props) => {
       </div>
 
       <Media greaterThanOrEqual={Breakpoints.s} className="work-slider__media">
-        {active && active.images?.[0] && (
+        {active && (active.cover || active.images?.[0]) && (
           <figure className="work-slider__image">
             <motion.div
               initial={{ opacity: 0, transform: "translateX(2rem)" }}
               animate={{ opacity: 1, transform: "translateX(0)" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              key={active.images[0].asset._ref}
+              key={
+                active.cover?.asset._ref ||
+                active.images?.find((i) => i._type === "image")?.alt
+              }
             >
               <Image
-                image={active.images[0]}
-                alt={active.images[0].alt || "Project Image"}
+                image={
+                  active.cover ||
+                  (active.images?.find(
+                    (i) => i._type === "image"
+                  ) as SanityImage)
+                }
+                alt={
+                  active.cover?.alt ||
+                  active.images?.find((i) => i._type === "image")?.alt ||
+                  "Project Image"
+                }
               />
               <figcaption className="hidden-visually">
                 Image showcasing Project {active.title}

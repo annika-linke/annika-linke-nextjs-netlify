@@ -28,6 +28,18 @@ const project = defineType({
     defineField({title: 'Role', name: 'role', type: 'description'}),
     defineField({title: 'Details', name: 'details', type: 'blockContent'}),
     defineField({
+      title: 'Cover',
+      name: 'cover',
+      type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternativ Text',
+        },
+      ],
+    }),
+    defineField({
       title: 'Images',
       name: 'images',
       type: 'array',
@@ -47,6 +59,29 @@ const project = defineType({
             },
           ],
         },
+        {
+          name: 'video',
+          type: 'file',
+          title: 'Video',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternativ Text',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+            {
+              name: 'poster',
+              type: 'image',
+              title: 'Poster'
+            }
+          
+          ]
+        }
       ],
     }),
   ],

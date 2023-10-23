@@ -93,16 +93,22 @@
 }
 
 @include mq($from: l) {
+  .layout__content {
+    max-width: none;
+    // padding-right: 6rem;
+
+    .layout--work & {
+      max-width: none;
+    }
+  }
+}
+
+@include mq($from: xxl) {
   .layout {
     grid-template-columns: 30rem 1fr;
   }
 
   .layout__content {
-    max-width: none;
     padding-right: 6rem;
-
-    .layout--work & {
-      max-width: none;
-    }
   }
 }

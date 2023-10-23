@@ -23,6 +23,15 @@ export interface SanityImage {
   };
   caption?: string;
 }
+export interface SanityVideo {
+  _type: "video";
+  asset: {
+    url: string;
+  };
+  alt?: "string";
+  caption?: string;
+  poster?: SanityImage;
+}
 
 export interface ProjectSlug {
   title?: string;
@@ -31,7 +40,7 @@ export interface ProjectSlug {
     _type: "slug";
     current: string;
   };
-  images?: SanityImage[];
+  images?: Array<SanityImage | SanityVideo>;
   short?: string;
 }
 
@@ -41,7 +50,8 @@ export interface Project extends SanityBody {
     _type: "slug";
     current: string;
   };
-  images?: SanityImage[];
+  images?: Array<SanityImage | SanityVideo>;
+  cover?: SanityImage;
   title?: string;
   priority: number;
   year?: string;
@@ -68,4 +78,10 @@ export interface About extends SanityBody {
   image?: SanityImage;
   text?: TypedObject | TypedObject[];
   contact?: Contact;
+}
+
+export interface Imprint extends SanityBody {
+  _type: "imprint";
+  title?: string;
+  text?: TypedObject | TypedObject[];
 }

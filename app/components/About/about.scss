@@ -53,14 +53,8 @@
 
 .about__content {
   @include mq($from: m) {
-    max-width: 45.7rem;
+    max-width: 58rem;
     margin-top: 20rem;
-  }
-}
-
-.about__text {
-  @include mq($from: m) {
-    max-width: 39rem;
   }
 }
 

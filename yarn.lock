@@ -2105,6 +2105,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-stickynode@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-stickynode/-/react-stickynode-4.0.2.tgz#a5cd6c0be638c42e3938c8abf7ddc077e7facb73"
+  integrity sha512-V+JXB7bVeIRKk8lE3UVUwcH2GVa2w7vBXhMXK7UhgcUG9kAJfQOH7EPCPgxTJo25/DP1UpiQO6h2yPlR9xsBzA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18.0.25":
   version "18.2.14"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.14.tgz#fa7a6fecf1ce35ca94e74874f70c56ce88f7a127"

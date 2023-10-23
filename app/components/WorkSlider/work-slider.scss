@@ -19,6 +19,10 @@
     flex-direction: column;
   }
 
+  @include mq($from: xl) {
+    width: 50%;
+  }
+
   @include mq($from: xxl) {
     width: 40%;
   }
@@ -120,9 +124,13 @@
     max-width: 59rem;
   }
 
+  @include mq($from: xl) {
+    max-width: 64rem;
+    width: 50%;
+  }
+
   @include mq($from: xxl) {
     width: 60%;
-    max-width: 64rem;
   }
 }
 

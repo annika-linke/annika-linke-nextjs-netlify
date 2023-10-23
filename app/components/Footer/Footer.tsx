@@ -1,5 +1,6 @@
 import React, { FunctionComponent as FC } from "react";
 import "./footer.scss";
+import Link from "next/link";
 
 interface Props {
   className?: string;
@@ -13,8 +14,7 @@ const Footer: FC<Props> = ({ className }: Props) => {
           <span>© {new Date().getFullYear()}, Annika Linke</span>
         </div>
         <div className="footer__link">
-          {/* <Link to="/">Privacy Policy</Link> */}
-          <span>Privacy Policy</span>
+          <Link href="/legal">Legal Notice</Link>
         </div>
       </div>
     </footer>

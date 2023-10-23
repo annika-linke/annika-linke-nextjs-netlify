@@ -5,6 +5,7 @@ import BlockContent from "../BlockContent";
 import Image from "../Image/Image";
 import ProjectHeader from "../ProjectHeader/ProjectHeader";
 import "./project.scss";
+import { urlForImage } from "@/sanity";
 
 const Project = ({
   title,
@@ -16,7 +17,7 @@ const Project = ({
 }: ProjectType) => {
   return (
     <div className="project">
-      <div className={classNames("project__content")}>
+      <div className="project__content">
         <div className="project__content-inner">
           <ProjectHeader
             headline={title}
@@ -41,8 +42,27 @@ const Project = ({
       <div className="project__images">
         {images &&
           images.map((image) => (
-            <figure className="project__picture" key={image.alt}>
-              <Image alt={image.alt || ""} image={image} />
+            <figure
+              className={classNames(
+                "project__picture",
+                image._type === "video" && "project__picture--video"
+              )}
+              key={image.alt}
+            >
+              {image._type === "video" ? (
+                <video
+                  className="project__video"
+                  autoPlay
+                  muted
+                  loop
+                  poster={urlForImage(image.poster || "").url()}
+                >
+                  <source src={image.asset.url} type="video/mp4"></source>
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <Image alt={image.alt || ""} image={image} />
+              )}
               {image.caption && (
                 <figcaption className="project__caption">
                   {image.caption}

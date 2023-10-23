@@ -18,6 +18,10 @@
     margin-bottom: 2.8rem;
     margin-left: auto;
   }
+
+  @include mq($from: l) {
+    margin-top: 10rem;
+  }
 }
 
 .work-navigator__title {

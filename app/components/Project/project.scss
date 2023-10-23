@@ -3,6 +3,7 @@
 .project {
   @include mq($from: l) {
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -18,7 +19,7 @@
   }
 
   @include mq($from: l) {
-    width: 40rem;
+    max-width: 50rem;
     flex-shrink: 0;
     margin-left: 9rem;
     padding-top: 5.8rem;
@@ -26,7 +27,11 @@
 
   @include mq($from: xl) {
     padding-top: 13.9rem;
-    width: 54rem;
+    max-width: 65rem;
+  }
+
+  @include mq($from: xxl) {
+    max-width: 75rem;
   }
 
   @media (max-height: 790px) {
@@ -41,6 +46,12 @@
 
   & + & {
     margin-top: 2.6rem;
+  }
+
+  @include mq($from: l) {
+    & + & {
+      margin-top: 10rem;
+    }
   }
 }
 
@@ -84,4 +95,13 @@
 
 .project__details-wrap {
   margin-top: auto;
+}
+
+.project__video {
+  width: 100%;
+  height: auto;
+
+  .project__picture--video & {
+    box-shadow: 0 0 20px 0 rgba(112, 122, 122, 0.5);
+  }
 }

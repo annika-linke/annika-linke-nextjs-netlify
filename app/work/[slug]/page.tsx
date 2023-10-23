@@ -33,12 +33,20 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
 const getProject = async (params: IParams): Promise<ProjectResponse> => {
   const { slug = "" } = params;
   const project = await client.fetch(
-    groq`*[_type == "project" && slug.current == $slug]{
+    groq`*[_type == "project" && slug.current == "jooli"]{
       ...,
+      "images": images[]{
+        ...,
+        "asset": select(
+          _type == "video" => asset->{url},
+          asset
+        )
+      },
       "next": *[_type == "project" && priority == select(
       ^.priority + 1 > count(*[_type == "project"]) => 1,
       ^.priority + 1
-    )][0]{title, slug, priority}
+    )][0]{title, slug, priority},
+      
   }[0]
   `,
     { slug }
