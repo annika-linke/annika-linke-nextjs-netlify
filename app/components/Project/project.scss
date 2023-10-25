@@ -26,7 +26,7 @@
   }
 
   @include mq($from: xl) {
-    padding-top: 13.9rem;
+    padding-top: 17rem;
     max-width: 65rem;
   }
 
@@ -100,8 +100,25 @@
 .project__video {
   width: 100%;
   height: auto;
+}
 
-  .project__picture--video & {
-    box-shadow: 0 0 20px 0 rgba(112, 122, 122, 0.5);
+.project__picture--shadow {
+  .project__video,
+  img {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(112, 122, 122, 0.2);
+    transition: all;
   }
+}
+
+.project__picture--loading {
+  .project__video,
+  img {
+    box-shadow: 0 0 20px 0 rgba(112, 122, 122, 0.01);
+  }
+}
+
+.project__links {
+  margin-top: 5.6rem;
 }

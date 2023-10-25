@@ -9,7 +9,11 @@
   font-size: 4.3rem;
   line-height: 1.1;
 
-  @include mq($from: m) {
+  @include mq($from: xl) {
+    font-size: 5rem;
+  }
+
+  @include mq($from: xxl) {
     font-size: 7.3rem;
   }
 }

@@ -63,7 +63,13 @@ const Header: FC<Props> = ({ siteTitle, className, hideLogo }: Props) => {
           </Link>
         </div>
         <div className="header__title">
-          <h1 className="header__title-headline">{siteTitle}</h1>
+          {siteTitle.toLocaleLowerCase() === "work" ? (
+            <a href="/work">
+              <h1 className="header__title-headline">{siteTitle}</h1>
+            </a>
+          ) : (
+            <h1 className="header__title-headline">{siteTitle}</h1>
+          )}
         </div>
         {!hideLogo && (
           <Link href="/" className="header__brand">

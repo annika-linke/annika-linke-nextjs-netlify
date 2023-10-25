@@ -28,6 +28,16 @@ const project = defineType({
     defineField({title: 'Role', name: 'role', type: 'description'}),
     defineField({title: 'Details', name: 'details', type: 'blockContent'}),
     defineField({
+      title: 'Links',
+      name: 'links',
+      type: 'array',
+      of: [{
+        type: 'object', fields: [
+          { name: 'text', type: 'string', title: 'Text' },
+          { name: 'url', type: 'url', title: 'Url' },
+        ]
+      }]}),
+    defineField({
       title: 'Cover',
       name: 'cover',
       type: 'image',
@@ -57,6 +67,11 @@ const project = defineType({
               type: 'string',
               title: 'Caption',
             },
+            {
+              name: 'shadow',
+              type: 'boolean',
+              title: 'Shadow',
+            }
           ],
         },
         {
@@ -78,6 +93,11 @@ const project = defineType({
               name: 'poster',
               type: 'image',
               title: 'Poster'
+            },
+            {
+              name: 'shadow',
+              type: 'boolean',
+              title: 'Shadow',
             }
           
           ]

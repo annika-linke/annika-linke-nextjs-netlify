@@ -22,7 +22,9 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
           <WorkNavigator
             to={project.next.slug?.current}
             index={project?.next?.priority}
-            title={project?.next?.title || "Next Project"}
+            title={
+              project?.next?.short || project?.next?.title || "Next Project"
+            }
           />
         )}
       </Layout>
@@ -33,13 +35,13 @@ const ProjectDetail = async ({ params }: { params: IParams }) => {
 const getProject = async (params: IParams): Promise<ProjectResponse> => {
   const { slug = "" } = params;
   const project = await client.fetch(
-    groq`*[_type == "project" && slug.current == "jooli"]{
+    groq`*[_type == "project" && slug.current == $slug]{
       ...,
       "images": images[]{
         ...,
         "asset": select(
-          _type == "video" => asset->{url},
-          asset
+          _type == "video" => asset->{url, metadata},
+          asset->{...,metadata}
         )
       },
       "next": *[_type == "project" && priority == select(

@@ -1,11 +1,9 @@
-"use client";
 import { Project as ProjectType } from "@/types/Response";
-import classNames from "classnames";
 import BlockContent from "../BlockContent";
-import Image from "../Image/Image";
+import ButtonLink from "../ButtonLink/ButtonLink";
 import ProjectHeader from "../ProjectHeader/ProjectHeader";
+import ProjectImage from "./ProjectImage";
 import "./project.scss";
-import { urlForImage } from "@/sanity";
 
 const Project = ({
   title,
@@ -14,6 +12,7 @@ const Project = ({
   role,
   details,
   images,
+  links,
 }: ProjectType) => {
   return (
     <div className="project">
@@ -33,6 +32,16 @@ const Project = ({
             {details && (
               <div className="project__details">
                 <BlockContent value={details} />
+
+                {links && (
+                  <div className="project__links">
+                    {links.map((link) => (
+                      <ButtonLink href={link.url} key={link.url}>
+                        {link.text}
+                      </ButtonLink>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </section>
@@ -41,35 +50,7 @@ const Project = ({
 
       <div className="project__images">
         {images &&
-          images.map((image) => (
-            <figure
-              className={classNames(
-                "project__picture",
-                image._type === "video" && "project__picture--video"
-              )}
-              key={image.alt}
-            >
-              {image._type === "video" ? (
-                <video
-                  className="project__video"
-                  autoPlay
-                  muted
-                  loop
-                  poster={urlForImage(image.poster || "").url()}
-                >
-                  <source src={image.asset.url} type="video/mp4"></source>
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <Image alt={image.alt || ""} image={image} />
-              )}
-              {image.caption && (
-                <figcaption className="project__caption">
-                  {image.caption}
-                </figcaption>
-              )}
-            </figure>
-          ))}
+          images.map((image) => <ProjectImage image={image} key={image.alt} />)}
       </div>
     </div>
   );

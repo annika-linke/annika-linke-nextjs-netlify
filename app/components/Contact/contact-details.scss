@@ -1,8 +1,10 @@
 @import "../../../styles/utils/list-reset";
 @import "../../../styles/utils/mq";
 
-.contact__mail {
+a.contact__mail {
   margin: 0 0 2.4rem 0;
+  text-transform: none;
+  font-family: var(--font-family-sans);
 }
 
 .contact__content {

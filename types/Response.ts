@@ -9,6 +9,7 @@ export interface SanityBody {
 
 export interface SanityImage {
   _type: "image";
+  _key: string;
   asset: {
     _ref: string;
     _type: "reference";
@@ -25,6 +26,7 @@ export interface SanityImage {
 }
 export interface SanityVideo {
   _type: "video";
+  _key: string;
   asset: {
     url: string;
   };
@@ -50,7 +52,9 @@ export interface Project extends SanityBody {
     _type: "slug";
     current: string;
   };
-  images?: Array<SanityImage | SanityVideo>;
+  images?: Array<
+    (SanityImage & { shadow?: boolean }) | (SanityVideo & { shadow?: boolean })
+  >;
   cover?: SanityImage;
   title?: string;
   priority: number;
@@ -60,6 +64,10 @@ export interface Project extends SanityBody {
   details?: TypedObject | TypedObject[];
   next?: ProjectSlug;
   short?: string;
+  links?: {
+    text?: string;
+    url?: string;
+  }[];
 }
 
 export interface Contact extends SanityBody {

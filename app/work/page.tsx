@@ -20,7 +20,11 @@ const getProjectSlugs = async (): Promise<Project[]> => {
       ...,
       slug{
         "current" : 'work/' + current
-      }
+      },
+      cover{
+        ...,
+        asset->{...,metadata}
+      } 
     } | order(priority asc)`
   );
 

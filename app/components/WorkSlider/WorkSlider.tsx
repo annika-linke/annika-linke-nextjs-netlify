@@ -159,6 +159,11 @@ const WorkSlider = ({ items }: Props) => {
                   active.images?.find((i) => i._type === "image")?.alt ||
                   "Project Image"
                 }
+                sizes="
+                  (max-width: 768px) 100vw,
+                  (max-width: 1024px) 40vw,
+                  (max-width: 1440px) 590px,
+                  640px"
               />
               <figcaption className="hidden-visually">
                 Image showcasing Project {active.title}
