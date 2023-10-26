@@ -20,6 +20,11 @@
 
 .about__media {
   position: relative;
+
+  @include mq($from: m) {
+    position: sticky;
+    top: 15rem;
+  }
 }
 
 .about__image {
