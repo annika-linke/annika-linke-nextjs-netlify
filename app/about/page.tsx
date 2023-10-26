@@ -17,7 +17,13 @@ const AboutPage = async () => {
 const getAbout = async (): Promise<AboutType> => {
   const about = await client.fetch(groq`*[_type == "about"]{
     ...,
-    "contact": *[_type == "contact"][0],
+    "contact": *[_type == "contact"]{
+      ...,
+      image{
+        ...,
+        asset->{...,metadata}
+      }
+    }[0],
   }[0]`);
 
   return about;
