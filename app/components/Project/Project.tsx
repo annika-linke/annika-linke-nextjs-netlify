@@ -36,7 +36,12 @@ const Project = ({
                 {links && (
                   <div className="project__links">
                     {links.map((link) => (
-                      <ButtonLink href={link.url} key={link.url}>
+                      <ButtonLink
+                        href={link.url}
+                        key={link.url}
+                        target="_blank"
+                        rel="noopener"
+                      >
                         {link.text}
                       </ButtonLink>
                     ))}
