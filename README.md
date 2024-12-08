@@ -2,6 +2,10 @@
 
 Next.js static site build with sanity.io.
 
+## Content
+
+- Sanity Studio https://next-js-portfolio.sanity.studio/desk/project
+
 ## Deployment
 
 - Netlify Continuous Deployment https://app.netlify.com/sites/profound-monstera-c42283/overview
