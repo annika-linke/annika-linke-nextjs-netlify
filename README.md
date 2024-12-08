@@ -9,6 +9,7 @@ Next.js static site build with sanity.io.
 ## Deployment
 
 - Netlify Continuous Deployment https://app.netlify.com/sites/profound-monstera-c42283/overview
+- Publishing content on Sanity Studio should trigger the webhook to build the main branch (try manually hitting deploy if this is not working)
 
 
 ## Sanity in VS-Code:
