@@ -1,4 +1,13 @@
-Sanity in VS-Code:
+# annika-linke.de 2023
+
+Next.js static site build with sanity.io.
+
+## Deployment
+
+- Netlify Continuous Deployment https://app.netlify.com/sites/profound-monstera-c42283/overview
+
+
+## Sanity in VS-Code:
 
 Workspace Settings: "eslint.workingDirectories": ["./app", "./sanity"]
 
