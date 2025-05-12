@@ -38,6 +38,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 cd /sanity
 yarn install
 yarn run dev
+# when done
+yarn run deploy
+# will deploy it to the studio cloud
 
 ## Notes
 
