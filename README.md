@@ -41,8 +41,19 @@ yarn run dev
 # when done
 yarn run deploy
 # will deploy it to the studio cloud
+```
+
+To log into sanity use
+
+```bash
+npx sanity login
+# Github -> Browser -> Login
+```
 
 ## Notes
 
 I updated sanity studio to the newest version, but only the cms part (/sanity). If the frontend is not working, I should update sanity there as well.
+
+```
+
 ```
